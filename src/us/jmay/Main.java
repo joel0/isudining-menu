@@ -1,6 +1,8 @@
 package us.jmay;
 
 
+import com.google.gson.Gson;
+
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,8 +11,18 @@ import java.net.URL;
 public class Main {
 
     public static void main(String[] args) {
+        Gson g = new Gson();
+        String urlFormat = "https://dining.iastate.edu/wp-json/dining/menu-hours/get-single-location/?slug=%s&time=";
+        String[] locationNames = {
+                "union-drive-marketplace-2-2"
+        };
         try {
-            System.out.println(fetchUrl("https://jmay.us"));
+            for (String locationName : locationNames) {
+                String url = String.format(urlFormat, locationName);
+                String menuJson = fetchUrl(url);
+                DiningCenter[] diningCenter = g.fromJson(menuJson, DiningCenter[].class);
+                System.out.println(diningCenter[0].toString("Dinner"));
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
