@@ -14,7 +14,10 @@ public class Main {
         Gson g = new Gson();
         String urlFormat = "https://dining.iastate.edu/wp-json/dining/menu-hours/get-single-location/?slug=%s&time=";
         String[] locationNames = {
-                "union-drive-marketplace-2-2"
+                "seasons-marketplace-2-2",
+                "conversations-2",
+                "union-drive-marketplace-2-2",
+                "friley-windows-2-2"
         };
         try {
             for (String locationName : locationNames) {
