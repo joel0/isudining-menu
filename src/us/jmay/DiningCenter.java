@@ -27,7 +27,7 @@ public class DiningCenter {
     public String toString(String section) {
         Menu m = getMeal(section);
         MealHour hour = getOpenTime(section);
-        if (m == null) {
+        if (m == null || (hour != null && !hour.getActive())) {
             return title + "\n    N/A\n";
         }
 
