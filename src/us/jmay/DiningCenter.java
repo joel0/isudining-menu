@@ -1,5 +1,7 @@
 package us.jmay;
 
+import java.util.HashSet;
+
 public class DiningCenter {
     public String title;
     public String facility;
