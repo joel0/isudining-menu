@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
@@ -35,11 +36,20 @@ public class Main {
             e.printStackTrace();
         }
 
-//        for (String meal : getMeals(diningCenters)) {
-//            System.out.println(meal);
-//        }
+        String[] meals = getMeals(diningCenters);
+        Scanner s = new Scanner(System.in);
+        int selection;
+        for (int i = 0; i < meals.length; i++) {
+            System.out.printf("%d. %s\n", i, meals[i]);
+        }
+        do {
+            System.out.print("Meal: ");
+            System.out.flush();
+            selection = s.nextInt();
+        } while (selection < 0 || selection >= meals.length);
+
         for (DiningCenter diningCenter : diningCenters) {
-            System.out.println(diningCenter.toString("Lunch"));
+            System.out.println(diningCenter.toString(meals[selection]));
         }
     }
 
