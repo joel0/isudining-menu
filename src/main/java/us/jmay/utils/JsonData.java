@@ -1,4 +1,4 @@
-package us.jmay;
+package us.jmay.utils;
 
 import com.google.gson.*;
 
@@ -6,6 +6,9 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class used to represent the JSON data in locations.json
+ */
 public class JsonData {
 
     private Map<Integer, String> locations;
@@ -37,7 +40,7 @@ public class JsonData {
             JsonArray loc = object.get("locations").getAsJsonArray();
             for(int i = 0; i < loc.size(); i++)
             {
-                locations.put(i, loc.getAsString());
+                locations.put(i, loc.get(i).getAsString());
             }
             return new JsonData(locations, object.get("url").getAsString());
         }

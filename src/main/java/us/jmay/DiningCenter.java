@@ -1,5 +1,8 @@
 package us.jmay;
 
+import us.jmay.menu.Menu;
+import us.jmay.menu.MenuDisplay;
+
 public class DiningCenter {
     public String title;
     public String facility;

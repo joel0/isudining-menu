@@ -1,12 +1,16 @@
 package us.jmay.utils;
 
 import java.io.File;
-import java.net.URL;
 
 public class DataUtil {
 
-    public URL getLocationFile()
+    /**
+     * Gets the locations.json file from the resources directory.
+     * @return location file
+     */
+    public static File getLocationFile()
     {
-        return this.getClass().getResource("locations.json");
+        ClassLoader loader = ClassLoader.getSystemClassLoader();
+        return new File(loader.getResource("locations.json").getFile());
     }
 }

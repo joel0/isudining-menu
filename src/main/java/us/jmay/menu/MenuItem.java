@@ -1,4 +1,4 @@
-package us.jmay;
+package us.jmay.menu;
 
 public class MenuItem {
     public String name;
