@@ -29,6 +29,7 @@ public class DiningHandler {
             }
         } catch (IOException e) {
             e.printStackTrace();
+            return;
         }
 
         String[] meals = getMeals(diningCenters);
