@@ -15,7 +15,7 @@ public class Main {
     private static Gson g = builder.create();
 
     public static void main(String[] args) throws IOException {
-        String text = Files.readString(DataUtil.getLocationFile().toPath());
+        String text = new String(Files.readAllBytes(DataUtil.getLocationFile().toPath()), StandardCharsets.UTF_8);
         JsonData data = g.fromJson(text, JsonData.class);
         DiningHandler handler = new DiningHandler(g, data.getLocations(), data.getUrl());
         handler.setupDining();
